@@ -37,4 +37,50 @@ class Product(object):
         print "Status:", self.status
         return self
 
-x1 = Product(100,"Cool item",29,"Nike",50).add_tax(.05).returned("opened box").display_info()
+product1 = Product(100,"Coolitem",29,"Nike",50).add_tax(.05).returned("opened box").display_info()
+product2 = Product(200,"Cool item 2",19,"Adidas",30).display_info()
+
+
+class Store(object):
+    def __init__(self,location,owner):
+        self.products = []
+        self.location = location
+        self.owner = owner
+    
+    def add_product(self,addedproduct):
+        self.products.append(addedproduct)
+        print self.products
+        return self
+
+    def remove_product(self,removedproduct):
+        for prod in self.products:
+            if prod.item_name == removedproduct:
+                self.products.remove(prod)
+        print self.products
+        return self
+    
+    def inventory(self):
+        for prod in self.products:
+            print "Price:", prod.price
+            print "Item Name:", prod.item_name
+            print "Weight:", prod.weight
+            print "Brand:", prod.brand
+            print "Cost:", prod.cost
+            print "Status:", prod.status
+            print ""
+        return self
+
+store1 = Store("Miami","Grant").add_product(product1)
+store1.add_product(product2)
+store1.remove_product("Coolitem")
+store1.inventory()
+
+
+
+
+
+
+
+
+
+
