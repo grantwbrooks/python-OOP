@@ -32,9 +32,7 @@ class CallCenter(object):
         print "Length of Que:", len(self.calls)
         print ""
         for x in self.calls:
-            print "Caller name:", x.caller_name
-            print "Phone number", x.phone
-            print ""
+            x.display()
         return self
 #Ninja Level Answer:
     def findandremove(self,q):
